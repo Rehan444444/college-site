@@ -15,7 +15,7 @@ import { SiYoutube } from 'react-icons/si';
 
 const OxFooter: React.FC = () => {
   return (
-    <footer className="bg-[#002147] text-white mt-auto">
+    <footer className="bg-[#ab6c29] text-white mt-auto">
       {/* Social Media Links */}
       <div className="border-b border-gray-700">
         <div className="container mx-auto px-4 py-6">
