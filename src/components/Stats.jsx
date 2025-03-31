@@ -26,7 +26,7 @@ const Stats = () => {
 
   return (
     <div className="relative w-full  py-6 text-gray-900">
-      <h2 className="text-center text-3xl font-bold mb-4">Student Statistics</h2>
+      <h2 className="text-center text-3xl font-bold mb-4">Student Stat</h2>
       <div
         ref={statsRef}
         className="flex overflow-hidden whitespace-nowrap space-x-12 px-6"
