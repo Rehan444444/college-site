@@ -8,6 +8,7 @@ import Vc from './Vc';
 import News from "./News"
 import Study from './study';
 import Testimonial from "./Testimonial"
+import Stats from "./Stats"
 
 const Homepage: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -163,6 +164,8 @@ const Homepage: React.FC = () => {
 
       {/* News and Events Section */}
       <News></News>
+
+      <Stats></Stats>
 
       <div className='text-3xl font-bold text-gray-900 flex flex-col justify-between items-center p-12  my-6'>
       <h1 >Facilites At Pandit Shambhu Nath Shukla University, Shahdol</h1>

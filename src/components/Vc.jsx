@@ -17,7 +17,7 @@ function Vc() {
             <div className="absolute -bottom-8 -left-8 w-48 h-48 dot-pattern opacity-50 rounded-full"></div>
             
             {/* Image Container */}
-            <div className="relative z-10 animate-float">
+            <div className="relative z-10 animate-float  wave-container">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-102 transition-transform duration-300">
                 <img
                   src="https://ptsnsuniversity.ac.in/website/Images/VCPTSNSU.jpg"
