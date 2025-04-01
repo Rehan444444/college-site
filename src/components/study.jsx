@@ -3,14 +3,15 @@ import React from 'react';
 function Study() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="py-16 sm:py-24 border-t border-gray-100">
+      <div className="py-16 sm:py-24 border-t border-blue-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-[#040434] mb-4 tracking-tight">
-            STUDYING AT PTSN
+          <h2 className="text-4xl flex justify-center font-extrabold text-[#1e2851]  tracking-tight">
+            Study at Ptsn
           </h2>
-          <p className="text-gray-600 mb-12 max-w-3xl text-lg">
-            Discover your academic journey through our diverse range of programs and opportunities
+          <p className='flex justify-center text-gray-600 text-lg p-4 mb-8'>
+            Discover a New Change in Your Life with Our Engaging Program
           </p>
+         
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Undergraduate admissions */}

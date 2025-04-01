@@ -1,28 +1,33 @@
 import React from 'react'
-import { GraduationCap, Bell, Search, ExternalLink, ChevronDown, Users, Building2, School, Users2 } from 'lucide-react';
+import { Bell, Search } from 'lucide-react';
 import Notify from './Notify';
 
 const Header = () => {
   return (
     <div>
-       <header className="bg-white shadow-sm  ">
+      <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-between">
+            {/* Logo Section */}
+            <div className="flex items-center gap-4 w-full lg:w-auto justify-between">
               <img 
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-4u3nm1_7AX51zulS3t3TJbKj6aVmy68-lw&s" 
                 alt="University Logo" 
                 className="w-20 h-20 rounded"
               />
-              <div className='mx-32'>
-                <h1 className="text-3xl font-bold text-red-800">Pandit Shambhu Nath Shukla University, Shahdol</h1>
-                <h1 className="text-2xl font-bold text-red-800 mx-20">पंडित शंभूनाथ शुक्ला विश्वविद्यालय, शहडोल (म. प्र.)</h1>
-                
+              <div className="mx-4 lg:mx-32 text-center lg:text-left">
+                <h1 className="text-2xl lg:text-3xl font-bold text-red-800">Pandit Shambhu Nath Shukla University, Shahdol</h1>
+                <h1 className="text-lg lg:text-2xl font-bold text-red-800 mx-4 lg:mx-20">पंडित शंभूनाथ शुक्ला विश्वविद्यालय, शहडोल (म. प्र.)</h1>
               </div>
-              <img src="https://jiwaji.edu/wp-content/uploads/2021/12/mybharatlogo.png.webp" alt=""  className='w-40 h-20' />
+              <img 
+                src="https://jiwaji.edu/wp-content/uploads/2021/12/mybharatlogo.png.webp" 
+                alt="Logo" 
+                className='w-40 h-20 hidden lg:block'
+              />
             </div>
-            
-            {/* <div className="flex items-center gap-6">
+
+            {/* Search and Notification Section */}
+            {/* <div className="hidden lg:flex items-end gap-6">
               <div className="relative">
                 <input
                   type="search"
@@ -36,9 +41,9 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Notify></Notify>
+      <Notify />
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

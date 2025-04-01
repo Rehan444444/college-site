@@ -1,49 +1,118 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-
-const statsData = [
-  { label: "Total Students", value: "50,000+" },
-  { label: "Graduates", value: "30,000+" },
-  { label: "Currently Enrolled", value: "20,000+" },
-  { label: "Scholarship Holders", value: "5,000+" },
-  { label: "International Students", value: "3,000+" }
-];
-
-const Stats = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const statsRef = useRef(null);
+const useCountAnimation = (end, duration = 2000) => {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isPaused) {
-      const interval = setInterval(() => {
-        if (statsRef.current) {
-          statsRef.current.scrollLeft += 2; // Adjust speed here
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        setCount(end);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+
+  return count;
+};
+
+const CollegeStats = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
-      }, 30);
-      return () => clearInterval(interval);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [isPaused]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const studentCount = useCountAnimation(isVisible ? 25000 : 0);
+  const graduationRate = useCountAnimation(isVisible ? 95 : 0);
+  const employmentRate = useCountAnimation(isVisible ? 92 : 0);
+  const facultyCount = useCountAnimation(isVisible ? 500 : 0);
+  const researchCount = useCountAnimation(isVisible ? 150 : 0);
+  const scholarshipAmount = useCountAnimation(isVisible ? 5 : 0);
 
   return (
-    <div className="relative w-full  py-6 text-gray-900">
-      <h2 className="text-center text-3xl font-bold mb-4">Student Stat</h2>
-      <div
-        ref={statsRef}
-        className="flex overflow-hidden whitespace-nowrap space-x-12 px-6"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        {statsData.map((stat, index) => (
-          <div
-            key={index}
-            className="bg-white text-gray-900 rounded-lg px-6 py-3 text-lg font-semibold shadow-md"
-          >
-            {stat.label}: {stat.value}
-          </div>
-        ))}
+    <section ref={sectionRef} className="py-16 px-4 max-w-6xl mx-auto">
+      <div className="text-center mb-12">
+        <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">
+          College Statistics
+        </span>
+        <h2 className="text-3xl font-bold text-[#1e2851] mt-4 mb-3">
+          Our College Achievement Metrics
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          We take pride in our academic excellence and the success of our students.
+          Here are some key statistics that showcase our achievements.
+        </p>
       </div>
-    </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            {studentCount.toLocaleString()}+
+          </div>
+          <p className="text-gray-600">Active Students</p>
+        </div>
+
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            {graduationRate}<span className="text-2xl">%</span>
+          </div>
+          <p className="text-gray-600">Graduation Rate</p>
+        </div>
+
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            {employmentRate}<span className="text-2xl">%</span>
+          </div>
+          <p className="text-gray-600">Employment Rate</p>
+        </div>
+
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            {facultyCount}+ 
+          </div>
+          <p className="text-gray-600">Expert Faculty</p>
+        </div>
+
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            {researchCount}+
+          </div>
+          <p className="text-gray-600">Research Papers</p>
+        </div>
+
+        <div className="text-center p-6 rounded-lg bg-white shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="text-4xl font-bold text-[#1e2851] mb-2">
+            <span className="text-2xl">$</span>{scholarshipAmount}M+
+          </div>
+          <p className="text-gray-600">Scholarship Fund</p>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Stats;
+export default CollegeStats;

@@ -38,9 +38,9 @@ const testimonials = [
 
 function App() {
   return (
-    <div className="min-h-64 bg-gradient-to-br from-gray-50 via-white to-gray-50 py-16">
+    <div className="min-h-64 bg-gradient-to-br from-gray-50 via-white to-gray-50 p-4  my-6">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Student Success Stories</h1>
+        <h1 className="text-4xl font-bold text-[#1e2851]">Student Success Stories</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
           Hear directly from our students about their transformative experiences at PTSN
         </p>
@@ -56,7 +56,7 @@ function App() {
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white rounded-xl shadow-xl p-8 text-center">
+            <div className="bg-white  rounded-xl shadow-xl p-8 text-center">
               <Quote className="h-10 w-10 text-blue-500 mx-auto mb-6" />
               <p className="text-gray-600 mb-6">{testimonial.quote}</p>
               <div className="flex items-center justify-center">

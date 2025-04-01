@@ -168,8 +168,8 @@ const Homepage: React.FC = () => {
       <Stats></Stats>
 
       <div className='text-3xl font-bold text-gray-900 flex flex-col justify-between items-center p-12  my-6'>
-      <h1 >Facilites At Pandit Shambhu Nath Shukla University, Shahdol</h1>
-      <p className=' flex justify center'>What we Offer Here</p>
+      <h1 className='text-[#1e2851]' >Facilites At Pandit Shambhu Nath Shukla University, Shahdol</h1>
+      <p className=' flex justify center text-[#1e2851]'>What we Offer Here</p>
       </div>
 
       {/* Extra Section */}

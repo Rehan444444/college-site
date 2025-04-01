@@ -1,6 +1,29 @@
 import React from 'react';
 
 const News = () => {
+  const newsArticles = [
+    {
+      title: 'PTSN University launches first human aerosol TB challenge trial',
+      date: '27 MAR 2025',
+      image: 'https://www.ox.ac.uk/sites/files/oxford/styles/ow_listing/s3/field/field_image_main/TB045-still_03.jpg?itok=0SaaQR57',
+    },
+    {
+      title: 'New advancements in AI and machine learning for health diagnostics',
+      date: '25 MAR 2025',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyPzjUu62iL_jxa6WtG3crCpNYmXtuzdeCj4wHY465KTIjUSaGR2dFvvM9_ieNzMAldt0&usqp=CAU', // Replace with actual image link
+    },
+    {
+      title: 'Global warming and its effects on coastal communities',
+      date: '22 MAR 2025',
+      image: 'https://static.israel21c.org/www/uploads/2019/01/shutterstock_globalwarming-1520x855.jpg', // Replace with actual image link
+    },
+  ];
+
+  const eventsList = [
+    { date: '29', month: 'MAR', title: 'Autism-Friendly Openings', location: 'History of Science Museum' },
+    { date: '02', month: 'APR', title: 'A conversation with Nicholas Kristof', location: 'Blavatnik School of Government' },
+  ];
+
   return (
     <div className="h-[39.5rem] relative overflow-hidden bg-gray-50 p-6 rounded-lg shadow-lg">
       {/* Animated background patterns */}
@@ -16,68 +39,40 @@ const News = () => {
         {/* NEWS Section */}
         <div className="w-full h-[36rem] lg:w-1/2 p-6 bg-white rounded-lg shadow-md">
           <div className="flex items-center justify-between mb-6 border-b pb-3">
-            <h2 className="text-3xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">NEWS</h2>
+            <h2 className="text-3xl font-bold text-[#1e2851] hover:text-blue-600 transition duration-300">NEWS</h2>
             <a href="#" className="text-blue-600 hover:text-blue-800 transition duration-300 hover:underline">All News</a>
           </div>
-          
-          {/* News Articles */}
-          <div className="space-y-6">
-          <div  className="flex flex-col md:flex-row gap-6 bg-gray-100 hover:bg-orange-50 p-4 rounded-lg transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                <div className="w-24 h-24 flex-shrink-0">
-                  <img 
-                    src='https://www.ox.ac.uk/sites/files/oxford/styles/ow_listing/s3/field/field_image_main/TB045-still_03.jpg?itok=0SaaQR57' 
-                    alt="TB Trial" 
-                    className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="w-full">
-                  <h3 className="text-lg font-semibold mb-2 hover:text-blue-600 transition duration-300">PTSN University launches first human aerosol TB challenge trial</h3>
-                  <p className="text-gray-600">27 MAR 2025</p>
-                </div>
-              </div>
-            
-              <div  className="flex flex-col md:flex-row gap-6 bg-gray-100 hover:bg-orange-50 p-4 rounded-lg transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                <div className="w-24 h-24 flex-shrink-0">
-                  <img 
-                    src='https://www.ox.ac.uk/sites/files/oxford/styles/ow_listing/s3/field/field_image_main/TB045-still_03.jpg?itok=0SaaQR57' 
-                    alt="TB Trial" 
-                    className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="w-full">
-                  <h3 className="text-lg font-semibold mb-2 hover:text-blue-600 transition duration-300">PTSN University launches first human aerosol TB challenge trial</h3>
-                  <p className="text-gray-600">27 MAR 2025</p>
-                </div>
-              </div>
 
-              <div  className="flex flex-col md:flex-row gap-6 bg-gray-100 hover:bg-orange-50 p-4 rounded-lg transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+          {/* News Articles */}
+          <div className="space-y-6 text-[#1e2851]">
+            {newsArticles.map((article, index) => (
+              <div key={index} className="flex flex-col md:flex-row gap-6 bg-gray-100 hover:bg-orange-50 p-4 rounded-lg transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="w-24 h-24 flex-shrink-0">
                   <img 
-                    src='https://www.ox.ac.uk/sites/files/oxford/styles/ow_listing/s3/field/field_image_main/TB045-still_03.jpg?itok=0SaaQR57' 
-                    alt="TB Trial" 
+                    src={article.image} 
+                    alt={article.title} 
                     className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="w-full">
-                  <h3 className="text-lg font-semibold mb-2 hover:text-blue-600 transition duration-300">PTSN University launches first human aerosol TB challenge trial</h3>
-                  <p className="text-gray-600">27 MAR 2025</p>
+                  <h3 className="text-lg font-semibold mb-2 hover:text-blue-600 transition duration-300">{article.title}</h3>
+                  <p className="text-gray-600">{article.date}</p>
                 </div>
               </div>
+            ))}
           </div>
-          
         </div>
 
         {/* EVENTS Section */}
         <div className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md border-l border-gray-200">
           <div className="flex items-center justify-between mb-6 border-b pb-3">
-            <h2 className="text-3xl font-bold text-gray-800 hover:text-blue-600 transition duration-300">EVENTS</h2>
+            <h2 className="text-3xl font-bold text-[#1e2851] hover:text-blue-600 transition duration-300">EVENTS</h2>
             <a href="#" className="text-blue-600 hover:text-blue-800 transition duration-300 hover:underline">All Events</a>
           </div>
-          
+
           {/* Event Listings */}
-          <div className="space-y-6">
-            {[{ date: '29', month: 'MAR', title: 'Autism-Friendly Openings', location: 'History of Science Museum' },
-              { date: '02', month: 'APR', title: 'A conversation with Nicholas Kristof', location: 'Blavatnik School of Government' }].map((event, index) => (
+          <div className="space-y-6 text-[#1e2851]">
+            {eventsList.map((event, index) => (
               <div key={index} className="flex gap-4 bg-gray-100 hover:bg-orange-50 p-4 rounded-lg transition-transform duration-300 transform hover:-translate-x-1 hover:shadow-lg">
                 <div className="flex-shrink-0 bg-[#002147] text-white text-center p-2 w-16 rounded-lg transform transition-transform hover:scale-105">
                   <div className="text-xl font-bold">{event.date}</div>
